@@ -29,11 +29,7 @@ function App() {
           <Route index element={<Alltask></Alltask>} />
           <Route path="completedtask" element={<CompletedTask></CompletedTask>} />
           <Route path="task" element={<Alltask></Alltask>} />
-
         </Route>
-
-
-
         <Route path="*" element={<Error></Error>} />
       </Routes>
 

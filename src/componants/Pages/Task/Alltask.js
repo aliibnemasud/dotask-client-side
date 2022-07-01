@@ -8,9 +8,7 @@ const Alltask = () => {
     const taskNameRef = useRef('');
     const [alltask, setAllTask] = useState([]);
     const [edit, setEdit] = useState(null);   
-    const [deleteTask, setDeleteTask] = useState(null); 
-     
-
+    const [deleteTask, setDeleteTask] = useState(null);
 
     useEffect(()=> {
         fetch("https://radiant-lowlands-88709.herokuapp.com/alltask")
@@ -86,9 +84,7 @@ const Alltask = () => {
             {
                 deleteTask && <DeleteModal deleteTask={deleteTask} ></DeleteModal>
             }
-
-
-            
+                        
         </div>
     );
 };

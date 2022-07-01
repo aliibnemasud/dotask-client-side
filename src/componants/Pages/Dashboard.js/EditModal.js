@@ -45,10 +45,10 @@ const EditModal = ({ edit }) => {
                     <h3 className="font-bold text-lg mb-5">UPDATE TASK</h3>
                     <input defaultValue={name} ref={nameRef} className="input w-full max-w-xs input-bordered" /> <br />
 
-                    <select defaultValue={progress} className="select w-full max-w-xs input-bordered my-5" ref={selectRef}>                        
-                        <option>Completed</option>
-                        <option>In Progress</option>
-                        <option>New</option>                        
+                    <select className="select w-full max-w-xs input-bordered my-5" ref={selectRef}>                        
+                        <option selected={progress === "Completed"}>Completed</option>
+                        <option selected={progress === "In Progress"}>In Progress</option>
+                        <option selected={progress === "New"}>New</option>                        
                     </select>
 
                     <label onClick={handleUpdate} for="edit-modal" className='btn btn-primary w-full max-w-xs'>Save</label>
