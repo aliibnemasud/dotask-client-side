@@ -9,7 +9,7 @@ const Alltask = () => {
     const [alltask, setAllTask] = useState([]);
     const [edit, setEdit] = useState(null);   
     const [deleteTask, setDeleteTask] = useState(null); 
-    console.log(deleteTask)  
+     
 
 
     useEffect(()=> {
@@ -26,7 +26,7 @@ const Alltask = () => {
         const taskName = taskNameRef.current.value;        
         const task = {
             name: taskName,
-            
+            progress: "New",            
         }
         fetch('https://radiant-lowlands-88709.herokuapp.com/task', {
             method: 'POST',
@@ -36,8 +36,7 @@ const Alltask = () => {
             body:JSON.stringify(task)
         })
         .then(res => res.json())
-        .then(data => {
-            console.log(data)
+        .then(data => {            
             
         })
 

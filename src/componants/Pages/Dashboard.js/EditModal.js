@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 
 const EditModal = ({ edit }) => {
-    const { name, _id } = edit;
+    const { name, _id, progress } = edit;
 
     const nameRef = useRef('');
     const selectRef = useRef('');
@@ -10,7 +10,7 @@ const EditModal = ({ edit }) => {
 
         const name = nameRef.current.value;
         const select = selectRef.current.value;
-        console.log(name)
+        
 
         const updateTask = {
             name: name,
@@ -26,7 +26,7 @@ const EditModal = ({ edit }) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data)
+                
             })
     }
 
@@ -45,9 +45,9 @@ const EditModal = ({ edit }) => {
                     <h3 className="font-bold text-lg mb-5">UPDATE TASK</h3>
                     <input defaultValue={name} ref={nameRef} className="input w-full max-w-xs input-bordered" /> <br />
 
-                    <select className="select w-full max-w-xs input-bordered my-5" ref={selectRef}>                        
+                    <select defaultValue={progress} className="select w-full max-w-xs input-bordered my-5" ref={selectRef}>                        
                         <option>Completed</option>
-                        <option selected>In Progress</option>
+                        <option>In Progress</option>
                         <option>New</option>                        
                     </select>
 

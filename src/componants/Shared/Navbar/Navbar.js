@@ -12,7 +12,7 @@ const Navbar = () => {
     <li><Link to="/dashboard"> Dashboard </Link> </li>    
   </>
 
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   
   return (

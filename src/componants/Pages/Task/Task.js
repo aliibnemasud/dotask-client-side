@@ -1,17 +1,38 @@
 import { PencilAltIcon, TrashIcon } from '@heroicons/react/solid';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const Task = ({task, setEdit, setDeleteTask}) => {
     const {name, _id} = task;
 
     const handleEdit = id => {
-        console.log(id)
+       
+    }
+
+    const handleComplete = id => {
+
+        const updateTask = {            
+            progress: "Completed",  
+        }
+
+        fetch(`https://radiant-lowlands-88709.herokuapp.com/task/${id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(updateTask),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+               toast.success("Completed")
+            })
+        
     }
 
     return (
         <tr>
             <td>
-                <input type="checkbox" className="checkbox" />
+                <input onChange={()=> handleComplete(_id)} type="checkbox" className="checkbox" />
             </td>
             <td>{name}</td>
             <td></td>

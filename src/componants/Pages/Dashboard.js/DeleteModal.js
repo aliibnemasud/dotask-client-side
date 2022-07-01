@@ -5,10 +5,6 @@ const DeleteModal = ({ deleteTask }) => {
 
     const { name, _id } = deleteTask;
 
-    const handComplete = id => {
-        console.log(id)
-    }
-
 
     const handleDelete = id => {
             const url = `http://localhost:5000/task/${id}`;
@@ -17,8 +13,7 @@ const DeleteModal = ({ deleteTask }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    toast.success(`${name} has been deleted.`)
-                    console.log(data)
+                    toast.success(`${name} has been deleted.`)                    
                 })
         }
 
@@ -28,7 +23,7 @@ const DeleteModal = ({ deleteTask }) => {
 
 
                 {/* <!-- Put this part before </body> tag-- > */}
-                <input onChange={()=> handComplete(_id)} value={_id} type="checkbox" id="delete-modal" className="modal-toggle" />
+                <input type="checkbox" id="delete-modal" className="modal-toggle" />
                 <div className="modal modal-bottom sm:modal-middle">
                     <label for="delete-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div className="modal-box relative">

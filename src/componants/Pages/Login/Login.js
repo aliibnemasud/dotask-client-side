@@ -1,16 +1,20 @@
 import React, { useRef } from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import SocialLogin from './SocialLogin';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
 
+    const [signInWithEmailAndPassword,] = useSignInWithEmailAndPassword(auth);
+
     const handleLogin = e => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-       console.log(email, password)
-       // signInWithEmailAndPassword
+        signInWithEmailAndPassword(email, password)
+       
     }
     return (
         <div className='text-center'>
