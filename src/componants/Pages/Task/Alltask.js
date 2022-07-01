@@ -11,7 +11,7 @@ const Alltask = () => {
 
 
     useEffect(()=> {
-        fetch("http://localhost:5000/alltask")
+        fetch("https://radiant-lowlands-88709.herokuapp.com/alltask")
         .then(res => res.json())
         .then(data => setAllTask(data))
 
@@ -26,7 +26,7 @@ const Alltask = () => {
             name: taskName,
             
         }
-        fetch('http://localhost:5000/task', {
+        fetch('https://radiant-lowlands-88709.herokuapp.com/task', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
