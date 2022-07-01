@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { BeakerIcon, TrashIcon } from '@heroicons/react/solid';
+import EditModal from '../Dashboard.js/EditModal';
 import Task from './Task';
+import DeleteModal from '../Dashboard.js/DeleteModal'
 
 const Alltask = () => {   
 
     const taskNameRef = useRef('');
     const [alltask, setAllTask] = useState([]);
-
-    
+    const [edit, setEdit] = useState(null);   
+    const [deleteTask, setDeleteTask] = useState(null);   
 
 
     useEffect(()=> {
@@ -63,15 +64,30 @@ const Alltask = () => {
                     </thead>
                     <tbody>
                        {
-                        alltask.map(task => <Task task={task} ></Task>)
+                        alltask.map(task => <Task 
+                            task={task}
+                            setEdit={setEdit}
+                            setdeleteTask={setDeleteTask}
+                            ></Task>)
                        }
                     </tbody>
                 </table>
             </div>
             <form onSubmit={handleAddTask}>
-                <input onKeyPress={handleKeypress} className='input input-bordered input-accent w-full max-w-xs mt-5 mr-5' ref={taskNameRef} type="text" placeholder='Add your new task' />
+                <input onKeyPress={handleKeypress} className='input input-bordered input-accent w-full max-w-xs mt-5 mr-5' ref={taskNameRef} type="text" placeholder='Add your new task' required />
                 <input className='btn btn-primary'  type="submit" value="Add Task" />                
             </form>
+
+            {
+                edit && <EditModal edit={edit} ></EditModal>
+            }
+
+            {
+                deleteTask && <DeleteModal deleteTask={deleteTask} ></DeleteModal>
+            }
+
+
+            
         </div>
     );
 };
