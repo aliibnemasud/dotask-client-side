@@ -36,14 +36,16 @@ const EditModal = ({ edit }) => {
 
 
             {/* <!-- Put this part before </body> tag-- > */}
-            <input type="checkbox" id="edit-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
+            <input type="checkbox" id="edit-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
             
-                <div class="modal-box">
+                <div className="modal-box">
+                <label for="edit-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
-                    <h3 class="font-bold text-lg">Update Task</h3>
-                    <input defaultValue={name} ref={nameRef} class="input w-full max-w-xs my-3 input-bordered" /> <br />
-                    <select class="select w-full max-w-xs" ref={selectRef}>                        
+                    <h3 className="font-bold text-lg mb-5">UPDATE TASK</h3>
+                    <input defaultValue={name} ref={nameRef} className="input w-full max-w-xs input-bordered" /> <br />
+
+                    <select className="select w-full max-w-xs input-bordered my-5" ref={selectRef}>                        
                         <option>Completed</option>
                         <option selected>In Progress</option>
                         <option>New</option>                        

@@ -8,6 +8,8 @@ import Calender from './componants/Pages/Calender/Calender';
 import Error from './componants/Pages/Error/Error';
 import Login from './componants/Pages/Login/Login';
 import Dashboard from './componants/Pages/Dashboard.js/Dashboard';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
@@ -35,6 +37,7 @@ function App() {
         <Route path="*" element={<Error></Error>} />
       </Routes>
 
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

@@ -9,7 +9,7 @@ const SocialLogin = () => {
 
     return (
         <div>
-            <div class="divider w-full max-w-xs mx-auto">OR</div>            
+            <div className="divider w-full max-w-xs mx-auto">OR</div>            
             <button onClick={()=> signInWithGoogle() } className='btn w-full max-w-xs' >Google Login</button>
         </div>
     );

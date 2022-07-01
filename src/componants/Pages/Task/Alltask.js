@@ -8,7 +8,8 @@ const Alltask = () => {
     const taskNameRef = useRef('');
     const [alltask, setAllTask] = useState([]);
     const [edit, setEdit] = useState(null);   
-    const [deleteTask, setDeleteTask] = useState(null);   
+    const [deleteTask, setDeleteTask] = useState(null); 
+    console.log(deleteTask)  
 
 
     useEffect(()=> {
@@ -52,8 +53,8 @@ const Alltask = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>Status</th>
@@ -67,7 +68,8 @@ const Alltask = () => {
                         alltask.map(task => <Task 
                             task={task}
                             setEdit={setEdit}
-                            setdeleteTask={setDeleteTask}
+                            setDeleteTask={setDeleteTask}
+                            key={task._id}
                             ></Task>)
                        }
                     </tbody>

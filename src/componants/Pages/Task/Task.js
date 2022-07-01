@@ -11,14 +11,15 @@ const Task = ({task, setEdit, setDeleteTask}) => {
     return (
         <tr>
             <td>
-                <input type="checkbox" class="checkbox" />
+                <input type="checkbox" className="checkbox" />
             </td>
             <td>{name}</td>
             <td></td>
+            {/* justify-center justify-items-center */}
             <td className='flex'>               
-                <label onClick={()=> setEdit(task)}  for="edit-modal"><PencilAltIcon onClick={()=> handleEdit(_id)} className="h-5 w-5" ></PencilAltIcon></label>
+                <label className='btn btn-ghost' onClick={()=> setEdit(task)}  for="edit-modal"><PencilAltIcon onClick={()=> handleEdit(_id)} className="h-7 w-7" ></PencilAltIcon></label>
 
-                <label onClick={()=> setDeleteTask(task)}  for="delete-modal"><TrashIcon className="h-5 w-5" ></TrashIcon></label>
+                <label className='btn btn-ghost' onClick={()=>setDeleteTask(task)}  for="delete-modal"><TrashIcon className="h-7 w-7"></TrashIcon></label>
                 
                 
             </td>
