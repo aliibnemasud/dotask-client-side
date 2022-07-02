@@ -7,7 +7,7 @@ const DeleteModal = ({ deleteTask }) => {
 
 
     const handleDelete = id => {
-            const url = `http://localhost:5000/task/${id}`;
+            const url = `https://radiant-lowlands-88709.herokuapp.com/task/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

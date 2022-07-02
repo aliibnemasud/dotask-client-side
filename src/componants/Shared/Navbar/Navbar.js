@@ -1,23 +1,31 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { signOut } from 'firebase/auth';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import auth from '../../../firebase.init';
+import logo from '../../../componants/Assets/logo.png';
 
 const Navbar = () => {
   const menu = <>
-    <li><Link to="/completedtask">Completed Task</Link> </li>
-    <li><Link to="/task">All Task</Link> </li>
+    <li><Link to="/">Home</Link> </li>
+    <li><Link to="/dashboard/completedtask">Completed Task</Link> </li>
+    <li><Link to="/dashboard/task">To-Do</Link> </li>
     <li><Link to="/calender"> Calender </Link> </li>    
-    <li><Link to="/dashboard"> Dashboard </Link> </li>    
+    <li><Link to="/dashboard"> Dashboard </Link> </li>
   </>
 
   const [user] = useAuthState(auth);
 
+  const navigate = useNavigate()
+
+  const goHome = () => {
+    navigate("/")
+  }
+
   
   return (
     <nav>
-      <div className="navbar bg-base-100 ">
+      <div className="navbar bg-base-200 ">
 
         <div className='navbar max-w-7xl mx-auto'>
 
@@ -30,7 +38,8 @@ const Navbar = () => {
                 {menu}
               </ul>
             </div>
-            <a className="btn btn-ghost normal-case text-xl">DoTask</a>
+            
+            <img onClick={goHome} className="" src={logo} alt="Logo"  />
           </div>
 
           <div className="navbar-center hidden lg:flex">

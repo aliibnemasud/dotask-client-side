@@ -9,6 +9,7 @@ import Error from './componants/Pages/Error/Error';
 import Login from './componants/Pages/Login/Login';
 import Dashboard from './componants/Pages/Dashboard.js/Dashboard';
 import { ToastContainer } from 'react-toastify';
+import Footer from './componants/Shared/Navbar/Footer/Footer';
 
 
 function App() {
@@ -32,8 +33,8 @@ function App() {
         </Route>
         <Route path="*" element={<Error></Error>} />
       </Routes>
-
       <ToastContainer></ToastContainer>
+      <Footer></Footer>
     </div>
   );
 }

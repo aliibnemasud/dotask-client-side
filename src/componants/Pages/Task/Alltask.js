@@ -15,7 +15,9 @@ const Alltask = () => {
         .then(res => res.json())
         .then(data => setAllTask(data))
 
-    },[alltask])
+    }, [alltask])
+
+    const otherTask = alltask.filter(element => element.progress === "New" || element.progress == "In Progress");
 
 
 
@@ -56,13 +58,13 @@ const Alltask = () => {
                         <tr>
                             <th>Status</th>
                             <th>Task Name</th>
-                            <th>Task Details</th>
+                            <th>Progress</th>
                             <th>Task Action</th>
                         </tr>
                     </thead>
                     <tbody>
                        {
-                        alltask.map(task => <Task 
+                        otherTask.map(task => <Task 
                             task={task}
                             setEdit={setEdit}
                             setDeleteTask={setDeleteTask}
