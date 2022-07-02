@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import useTask from '../../Hook/useTask';
 import Task from './Task';
 import EditModal from '../Dashboard/EditModal';
