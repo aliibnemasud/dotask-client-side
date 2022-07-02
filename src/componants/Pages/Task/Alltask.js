@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import EditModal from '../Dashboard.js/EditModal';
+import EditModal from '../Dashboard/EditModal';
 import Task from './Task';
-import DeleteModal from '../Dashboard.js/DeleteModal'
+import DeleteModal from '../Dashboard/DeleteModal';
 
 const Alltask = () => {   
 
