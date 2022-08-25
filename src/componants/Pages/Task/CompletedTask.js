@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
-import useTask from '../../Hook/useTask';
+import React, { useEffect, useState } from 'react';
 import Task from './Task';
 import EditModal from '../Dashboard/EditModal';
 import DeleteModal from '../Dashboard/DeleteModal';
+import { useSelector, useDispatch } from 'react-redux';
+import { featchAllTask } from '../../../Features/Alltask/allTaskSlice';
 
 const CompletedTask = () => {
 
     const [edit, setEdit] = useState(null);
     const [deleteTask, setDeleteTask] = useState(null);
 
-    const [alltask] = useTask();
+    // Using redux to load data
+
+    const { tasks: alltask } = useSelector(state => state.tasks);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(featchAllTask())
+    }, [])
 
     const completedTask = alltask.filter(element => element.progress === "Completed");
 
